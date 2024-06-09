@@ -3,18 +3,17 @@ import TodoItem from "../components/TodoItem";
 import { useState } from "react";
 import axios from "axios";
 
-// define a loader function
+
 export const loader = async () => {
-    // make an async call to fetch data
+
     const todos = await axios.get(`https://665eb3431e9017dc16f0f97b.mockapi.io/todos`);
 
-    // return the data
+
     return {todos: todos.data };
 }
 
 const Todos = () => {
 
-    // use the data using the useLoader hook
     const { todos: initialTodos } = useLoaderData();
     const [todos, setTodos] = useState(initialTodos);
 
@@ -29,7 +28,7 @@ const Todos = () => {
     const handleCreateTodo = async (e) => {
         e.preventDefault();
 
-        // create a new todo object
+    
         const newTodo = {
             title,
             description,
